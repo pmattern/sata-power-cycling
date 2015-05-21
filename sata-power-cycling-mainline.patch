@@ -1,0 +1,11 @@
+--- a/drivers/scsi/sd.c	2015-05-20 16:00:09.480066072 +0200
++++ b/drivers/scsi/sd.c	2015-05-20 17:23:13.189039120 +0200
+@@ -3163,7 +3163,7 @@
+ 		sd_sync_cache(sdkp);
+ 	}
+ 
+-	if (system_state != SYSTEM_RESTART && sdkp->device->manage_start_stop) {
++	if (sdkp->device->manage_start_stop) {
+ 		sd_printk(KERN_NOTICE, sdkp, "Stopping disk\n");
+ 		sd_start_stop_device(sdkp, 0);
+ 	}
